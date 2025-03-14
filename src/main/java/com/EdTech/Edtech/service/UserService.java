@@ -17,7 +17,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    //Getting students
     public List<User> getUsersByRole(String role) {
         try {
             UserRole userRole = UserRole.valueOf(role.toUpperCase()); // Convert safely

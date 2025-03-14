@@ -26,13 +26,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getUsersByRole("TEACHER"));
     }
 
-    // Get all admins
-    @GetMapping("/admins")
-    public ResponseEntity<List<User>> getAdmins() {
-        return ResponseEntity.ok(userService.getUsersByRole("ADMIN"));
-    }
 
-    // Register a new user
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         return ResponseEntity.ok(userService.registerUser(user));
