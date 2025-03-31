@@ -2,7 +2,10 @@ package com.EdTech.Edtech.model;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity //to mark that we have an entity class
+//Quiz (ID, Title, Linked Course)
+//Question (ID, Question Text, Options, Correct Answer, Linked Quiz)
+//QuizAttempt (ID, User, Quiz, Score, Timestamp)
 public class Quiz {
 
     @Id
@@ -13,13 +16,24 @@ public class Quiz {
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
-    private Course course; // Proper relationship with Course entity
-    //course id will be fk to course since wkt each ass willbe
+    private Course course;
+    //4 rln to course id in course class we cant simply give courseid as
+    //private int coureid v n 2 link coloumns
+    //course id will be fk to course since wkt each quiz will be
     //part of a single course
+
+    //Yes, exactly! When we use @ManyToOne with Course,
+    //our goal is to link each Quiz with a specific Course in the database.
+    //Instead of just storing a long courseId
 
     // ✅ Default Constructor
     public Quiz() {}
+    //Yes, we need a default constructor because:
+    //Hibernate (JPA) requires a default constructor
+    //to instantiate the entity when fetching data from the database.
 
+
+    //now no more logic simply just create const,getter setter 4 the 3
     // ✅ Parameterized Constructor
     public Quiz(String title, Course course) {
         this.title = title;
