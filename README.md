@@ -1,1 +1,1 @@
-# Pentathon
+# THIS IS OUR HACKATHON PROJECT
